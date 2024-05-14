@@ -1,6 +1,5 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
-import uvicorn
 from starlette.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
 import asyncio
@@ -46,7 +45,7 @@ async def speech2text(data: models.TranscribeData):
             tmp_path = tmp.name
             
         
-        transcribed_text = transcribe(tmp_path)
+        transcribed_text = transcribe(tmp_path, language=data.language)
 
         # Schedule deletion of the file after 20 minutes
         deletion_time = datetime.now() + timedelta(minutes=20)
@@ -63,3 +62,7 @@ async def schedule_deletion(file_path, deletion_time):
     if os.path.exists(file_path):
         os.remove(file_path)
 
+
+@app.post("/translate/")
+async def translate(data: models.TranslateData):
+    pass
