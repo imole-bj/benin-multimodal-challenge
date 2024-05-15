@@ -14,3 +14,4 @@ openai-whisper==20231117
 accelerate==0.30.1
 moviepy==1.0.3
 pydantic==2.7.1
+gtts==2.5.1
