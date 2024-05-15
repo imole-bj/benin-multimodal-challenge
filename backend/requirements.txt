@@ -13,3 +13,4 @@ srt==3.5.3
 openai-whisper==20231117
 accelerate==0.30.1
 moviepy==1.0.3
+pydantic==2.7.1
