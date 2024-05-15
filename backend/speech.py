@@ -5,6 +5,30 @@ from elevenlabs.client import ElevenLabs
 import tempfile
 from datetime import timedelta, datetime
 
+import copy
+import subprocess
+import ffmpeg
+from pydub import AudioSegment
+from pydub.silence import detect_nonsilent
+from transformers import AutoProcessor, WhisperForConditionalGeneration
+import whisper
+import os
+from datetime import timedelta
+import re
+import srt
+
+from transformers import VitsModel, AutoTokenizer
+import torch
+import scipy
+import torch
+import numpy as np
+from gtts import gTTS
+import tempfile
+import sys
+import json
+import datetime
+import ffmpeg
+from moviepy.editor import VideoFileClip
 
 class Speaker:
     def __init__(self, language:str) -> None:
@@ -83,16 +107,26 @@ class FonSpeaker(Speaker):
         
     
 class YorubaSpeaker(Speaker):
-    def __init__(self, language:str, model:str) -> None:
-        super().__init__(language)
-        self.model = model
+    def __init__(self,voice_id="NoHwHmWTEahCvsFm5shT") -> None:
+        self.voice_id = voice_id
+        self.model = ElevenLabs()
 
     def speak(self, text):
-        pass
+        
+        audio = self.model.generate(
+        text=text,
+        voice=Voice(
+            voice_id=self.voice_id,
+            settings=VoiceSettings(stability=0.9, similarity_boost=0.9, style=0.0, use_speaker_boost=True)
+        )
+        )
+        
+        save(audio, "./outputs/trans.mp3")
+        
+        return "./outputs/trans.mp3"
     
 class DendiSpeaker(Speaker):
-    def __init__(self, language:str, model, voice_id="UP1EujEcpLOHlLj5G0tb") -> None:
-        super().__init__(language, model)
+    def __init__(self,voice_id="UP1EujEcpLOHlLj5G0tb") -> None:
         self.voice_id = voice_id
         self.model = ElevenLabs()
 

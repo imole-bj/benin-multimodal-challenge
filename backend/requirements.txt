@@ -7,3 +7,9 @@ uvicorn==0.24.0.post1
 elevenlabs==1.2.2
 python-dotenv==1.0.1
 openai==1.30.1
+ffmpeg-python==0.2.0
+pydub==0.25.1
+srt==3.5.3
+openai-whisper==20231117
+accelerate==0.30.1
+moviepy==1.0.3
