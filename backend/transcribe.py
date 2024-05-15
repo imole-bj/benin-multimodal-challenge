@@ -72,7 +72,7 @@ class YorubaLanguageTranscriber(BeninLanguageTranscriber):
         self.model = ElevenLabs()
         
     #fonction mapping dict
-    def rename_keys(s_dict):
+    def rename_keys(self, s_dict):
 
         WHISPER_MAPPING = {
         "encoder.ln_post.weight": "encoder.layer_norm.weight", # added by ax
