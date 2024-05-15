@@ -38,8 +38,7 @@ class Speaker:
         pass
 
 class FonSpeaker(Speaker):
-    def __init__(self, language:str, model, voice_id="jMy9AeK2ICd0fEZFXdly") -> None:
-        super().__init__(language, model)
+    def __init__(self, voice_id="jMy9AeK2ICd0fEZFXdly") -> None:
         self.voice_id = voice_id
         self.model = ElevenLabs()
         self.phono = {
@@ -144,8 +143,7 @@ class DendiSpeaker(Speaker):
         return "./outputs/trans.mp3"
     
 class OthersSpeaker(Speaker):
-    def __init__(self, language:str, model:str) -> None:
-        super().__init__(language, model)
+    def __init__(self) -> None:
         self.voice_id = "oWAxZDx7w5VEj9dCyTzz"
         self.model = ElevenLabs()
 
