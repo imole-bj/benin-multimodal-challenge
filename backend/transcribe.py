@@ -49,9 +49,10 @@ class BeninLanguageTranscriber(Transcriber):
 class FonLanguageTranscriber(BeninLanguageTranscriber):
     
     def __init__(self) -> None:
+        self.model_src = "speechbrain/asr-wav2vec2-dvoice-fongbe"
         self.model = EncoderASR.from_hparams(
-    source="speechbrain/asr-wav2vec2-dvoice-fongbe",
-    savedir=f"pretrained_models/{"speechbrain/asr-wav2vec2-dvoice-fongbe".split('/')[-1]}",
+    source=self.model_src,
+    savedir=f"pretrained_models/asr-wav2vec2-dvoice-fongbe",
     run_opts={"device":device})
         
         
