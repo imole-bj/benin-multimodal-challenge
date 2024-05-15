@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, File, UploadFile
 from fastapi.responses import FileResponse
 from starlette.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
@@ -13,11 +13,23 @@ import base64
 import tempfile
 import os
 from datetime import timedelta, datetime
-import shutil
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 version = f"{sys.version_info.major}.{sys.version_info.minor}"
 
 app = FastAPI(title="Dokoun")
+
+UPLOAD_DIRECTORY = "./tmp_uploads"
+OUTPUT_DIRECTORY = "./outputs"
+
+if not os.path.exists(UPLOAD_DIRECTORY):
+    os.makedirs(UPLOAD_DIRECTORY)
+    
+if not os.path.exists(OUTPUT_DIRECTORY):
+    os.makedirs(OUTPUT_DIRECTORY)
 
 app.add_middleware(
     CORSMiddleware,
@@ -66,3 +78,35 @@ async def schedule_deletion(file_path, deletion_time):
 @app.post("/translate/")
 async def translate(data: models.TranslateData):
     pass
+
+@app.post("/speak/")
+async def speak(data: models.SpeechData):
+    pass
+
+@app.post("/dubbling")
+async def dubbling(file: UploadFile = File(...), src_lang: str = "fo", dest_lang: str = "yo"):
+        try:
+            file_location = os.path.join(UPLOAD_DIRECTORY, file.filename)
+            with open(file_location, "wb") as f:
+                f.write(file.file.read())
+                
+            # Handle dubbling here
+            dubbed_video_path = ""
+            
+            return FileResponse(dubbed_video_path, media_type="video/mp4", filename=dubbed_video_path)
+        except Exception as e:
+            return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.post("/speech2speech/")
+async def speech_to_speech(file: UploadFile = File(...), src_lang: str = "fo", dest_lang: str = "yo"):
+    try:
+        file_location = os.path.join(UPLOAD_DIRECTORY, file.filename)
+        with open(file_location, "wb") as f:
+            f.write(file.file.read())
+            
+        # Handle speech2speech here
+        final_speech = ""
+        
+        return FileResponse(final_speech, media_type="audio/mpeg", filename=final_speech)
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})

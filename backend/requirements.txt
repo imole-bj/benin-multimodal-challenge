@@ -6,3 +6,4 @@ fastapi==0.104.1
 uvicorn==0.24.0.post1
 elevenlabs==1.2.2
 python-dotenv==1.0.1
+openai==1.30.1
