@@ -33,7 +33,6 @@ from moviepy.editor import VideoFileClip
 class Speaker:
     def __init__(self, language:str) -> None:
         self.language = None
-        self.model = None
 
     def speak(self, text):
         pass

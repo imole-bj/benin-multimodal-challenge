@@ -34,9 +34,8 @@ from gtts import gTTS
 device = "cuda" if cuda.is_available() else "cpu"
 
 class Transcriber:
-    def __init__(self, language:str, model:str) -> None:
+    def __init__(self, language:str) -> None:
         self.language = language
-        self.model = model
         
 
 class OthersLanguageTranscriber(Transcriber):
@@ -44,8 +43,8 @@ class OthersLanguageTranscriber(Transcriber):
         self.model = model
         
 class BeninLanguageTranscriber(Transcriber):
-    def __init__(self, language:str, model:str) -> None:
-        super().__init__(language, model)
+    def __init__(self, language:str,) -> None:
+        super().__init__(language)
         
 class FonLanguageTranscriber(BeninLanguageTranscriber):
     
@@ -64,8 +63,7 @@ class FonLanguageTranscriber(BeninLanguageTranscriber):
         
         
 class YorubaLanguageTranscriber(BeninLanguageTranscriber):
-    def __init__(self, language:str, model:str) -> None:
-        super().__init__(language, model)
+    def __init__(self) -> None:
         self.model = whisper.load_model("small")
         self.finetune_model = WhisperForConditionalGeneration.from_pretrained("steja/whisper-small-yoruba")
         #self.speakermodel = VitsModel.from_pretrained("facebook/mms-tts-yor")
