@@ -198,21 +198,10 @@ class DendiLanguageTranscriber(BeninLanguageTranscriber):
         super().__init__(language, model)
 
 
-fon_transcriber = FonLanguageTranscriber("Fon")
-yoruba_transcriber = YorubaLanguageTranscriber("Yoruba")
-dendi_transcriber = DendiLanguageTranscriber("Dendi")
-others_transcriber = OthersLanguageTranscriber()
-
-def transcribe(filepath: str, language: str = None):
-    transcribers = {
-        "Fon": fon_transcriber,
-        "Yoruba": yoruba_transcriber,
-        "Dendi": dendi_transcriber,
-        None: others_transcriber
-    }
-    transcriber = transcribers.get(language, others_transcriber)
-    
-    return transcriber.transcribe(filepath)
+#fon_transcriber = FonLanguageTranscriber("Fon")
+#yoruba_transcriber = YorubaLanguageTranscriber("Yoruba")
+#dendi_transcriber = DendiLanguageTranscriber("Dendi")
+#others_transcriber = OthersLanguageTranscriber()
 
 
 def get_gpt4_json_response(prompt):
