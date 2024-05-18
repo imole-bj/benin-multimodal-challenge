@@ -1,0 +1,27 @@
+
+
+@import "swiper/css/bundle";    
+/* @import "~bootstrap/scss/bootstrap"; */
+
+
+@import "../../public/assets/css/animations.css";
+@import "../../public/assets/css/auth.css";
+@import "../../public/assets/css/booking.css";
+@import "../../public/assets/css/bootstrap.min.css";
+@import "../../public/assets/css/chat.css";
+@import "../../public/assets/css/datetimepicker.css";
+@import "../../public/assets/css/details.css";
+@import "../../public/assets/css/explore.css";
+@import "../../public/assets/css/jquery.datetimepicker.css";
+/* @import "../../public/assets/css/jquery-ui.min.css"; */
+@import "../../public/assets/css/notification.css";
+@import "../../public/assets/css/profile.css";
+@import "../../public/assets/css/ticket.css";
+@import "../../public/assets/css/welcome.css";
+
+
+
+
+@import "../../public/assets/css/bootstrap.min.css"; 
+@import "../../public/assets/css/home.css"; 
+@import "../../public/assets/css/common.css"; 
