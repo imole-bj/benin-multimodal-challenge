@@ -1,0 +1,70 @@
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/OuM1L9ZyjSQ
+-->
+
+<div class="row">
+    <video controls data-bs-video>
+      <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+      <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
+    </video>
+    <div class="vjs-transcription accordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header " id="transcription-head1">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#transcription1" aria-expanded="true" aria-controls="transcription">
+            Trascrizione
+          </button>
+        </h2>
+        <div id="transcription1" class="accordion-collapse collapse" role="region" aria-labelledby="transcription-head1">
+          <div class="accordion-body">
+            Vestibulum hendrerit ultrices nibh, sed pharetra lacus ultrices eget. Morbi et ipsum et sapien dapibus facilisis. Integer eget semper nibh. Proin enim nulla, egestas ac rutrum eget, ullamcorper nec turpis.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  Controllare il player con i data-attribute
+  Il player offre numerose opzioni di configurazione per personalizzare l’aspetto e il comportamento dello stesso. Una delle modalità per configurarlo consiste nell’utilizzare l’attributo data-setup definito all’interno del tag video avente come valore un array in formato JSON.
+  
+  
+
+<main class="container mx-auto px-4 py-12 md:px-6 lg:py-16">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Upload and Render Video</h1>
+        <p class="mt-4 text-gray-500 dark:text-gray-400">
+          Easily upload your video and see it rendered in a beautiful player.
+        </p>
+        <div class="mt-6 flex items-center gap-x-4">
+          <label
+            for="video"
+            class="inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-gray-900/90 focus:outline-none focus:ring-1 focus:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus:ring-gray-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mr-2 h-5 w-5"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" x2="12" y1="3" y2="15"></line>
+            </svg>
+            Upload Video
+          </label>
+          <input id="video" accept="video/*" class="sr-only" type="file" name="video" />
+        </div>
+      </div>
+      <div>
+        <div class="aspect-video overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+          <span class="h-full w-full object-cover rounded-md bg-muted"></span>
+        </div>
+      </div>
+    </div>
+  </main>
